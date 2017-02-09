@@ -21,8 +21,7 @@ subplot(621);
 imshow(cropTemp);
 title('template photo');
 subplot(622);
-histTemp = imhist(cropTemp);
-plot(histTemp);
+imhist(cropTemp);
 title('template hist');
 
 
@@ -31,24 +30,23 @@ subplot(623);
 imshow(leftEye);
 title('left eye photo');
 subplot(624)
-histLeftEye = imhist(leftEye);
-plot(histLeftEye);
+imhist(leftEye);
+
 
 lips = imcrop(I,[276.5 336.5 34 32]);
 subplot(625);
 imshow(lips);
 title('lips photo');
 subplot(626);
-histLips = imhist(lips);
-plot(histLips);
+imhist(lips);
+
 
 nose = imcrop(I,[287.5 297.5 34 32]);
 subplot(627);
 imshow(nose);
 title('nose photo');
 subplot(628);
-histNose = imhist(nose);
-plot(histNose);
+imhist(nose);
 
 
 crop4 = imcrop(I,[109.5 43.5 34 32]);
@@ -56,29 +54,47 @@ subplot(629);
 imshow(crop4);
 title('croped photo');
 subplot(6,2,10);
-histCrop4 = imhist(crop4);
-plot(histCrop4);
+imhist(crop4);
+
 
 hair = imcrop(I,[189.5 228.5 34 32]);
 subplot(6,2,11);
 imshow(hair);
 title('hair photo');
 subplot(6,2,12);
-histHair = imhist(hair);
-plot(histHair);
+imhist(hair);
+
 % comparison
 
-eyeDiff = histLeftEye - histTemp;
-noseDiff = histNose - histTemp;
-lipDiff = histLips - histTemp;
-crop4Diff = histCrop4 - histTemp;
-hairDiff = histHair - histTemp;
+eyeDiff = -leftEye - cropTemp;
+noseDiff = nose - cropTemp;
+lipDiff = lips - cropTemp;
+crop4Diff = crop4 - cropTemp;
+hairDiff = hair - cropTemp;
 
 
 diff1 = sqrt(sum((eyeDiff).^2))
+
 diff2 = sqrt(sum((noseDiff).^2))
+
 diff3 = sqrt(sum((lipDiff).^2))
+
 diff4 = sqrt(sum((hairDiff).^2))
+
+
+figure;
+subplot(221);
+imhist(eyeDiff);
+title('eyes diff');
+subplot(222);
+imhist(noseDiff);
+title('nose diff');
+subplot(223);
+imhist(lipDiff);
+title('lips diff');
+subplot(224);
+imhist(hairDiff);
+title('hair diff');
 
 
 figure;
