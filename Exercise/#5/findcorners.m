@@ -24,9 +24,9 @@ Iy2 = conv2(double(Iy.^2),kernel,'same');
 Ixy = conv2(double(Ix.*Iy),kernel,'same');
 
 % step 3: Harris;
-% harris = (Ix2.*Iy2 - Ixy.^2)./(Ix2+Iy2 + eps);
+harris = (Ix2.*Iy2 - Ixy.^2)./(Ix2+Iy2 + eps);
 
-harris = (Ix2.*Iy2 - Ixy.^2)-k*(Ix2+Iy2).^2;
+% harris = (Ix2.*Iy2 - Ixy.^2)-k*(Ix2+Iy2).^2;
 
 % step 4: 2D statistics filtering of Harris
 harrisFilt = ordfilt2(harris,order^2,ones(order));

@@ -4,5 +4,5 @@ close all;
 
 
 source = imread('blocks_bw.png');
-findcorners(source,2,4e4);
+findcorners(source,2,100);
 

@@ -9,11 +9,11 @@ img = imread('blocks_bw.png');
 % Canny edge detector
 [~, threshCanny] = edge(img,'canny');
 
-tCanny = 1.5*threshCanny;
-tHigh = tCanny(1);
-tLow = tCanny(2);
-% tHigh = 1.42;
-% tLow = .4*tHigh;
+% tCanny = 1.52*threshCanny;
+% tHigh = tCanny(1);
+% tLow = tCanny(2);
+tHigh = .05;
+tLow = .8*tHigh;
 cannyEdges = edge(img,'canny',tLow,tHigh);
 
 % Sobel edge detector
