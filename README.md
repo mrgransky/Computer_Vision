@@ -1,2 +1,4 @@
-# Computer_Vision
-Computer_Vision course @ machine vision and pattern recognition laboratory LUT
+## Computer_Vision
+
+Computer Vision course 
+  - [x] Machine Vision and Pattern Recognition Laboratory
